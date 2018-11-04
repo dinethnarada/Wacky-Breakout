@@ -15,7 +15,7 @@ public static class ConfigurationUtils
     /// <value>paddle move units per second</value>
     public static float PaddleMoveUnitsPerSecond
     {
-        get { return 0.2f; }
+        get { return 0.3f; }
     }
 
     #endregion
