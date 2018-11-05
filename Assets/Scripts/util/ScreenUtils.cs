@@ -67,12 +67,9 @@ public static class ScreenUtils
         // save screen edges in world coordinates
         float screenZ = -Camera.main.transform.position.z;
         Vector3 lowerLeftCornerScreen = new Vector3(0, 0, screenZ);
-        Debug.Log(lowerLeftCornerScreen);
         Vector3 upperRightCornerScreen = new Vector3(Screen.width, Screen.height, screenZ);
-        Debug.Log(upperRightCornerScreen);
         Vector3 lowerLeftCornerWorld =Camera.main.ScreenToWorldPoint(lowerLeftCornerScreen);
         Vector3 upperRightCornerWorld =Camera.main.ScreenToWorldPoint(upperRightCornerScreen);
-        Debug.Log(upperRightCornerWorld);
         screenLeft = lowerLeftCornerWorld.x;
         screenRight = upperRightCornerWorld.x;
         screenTop = upperRightCornerWorld.y;

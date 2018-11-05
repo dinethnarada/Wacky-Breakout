@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public static class ConfigurationUtils
 {
+    static ConfigurationData configurationData;
     #region Properties
     
     /// <summary>
@@ -15,7 +16,15 @@ public static class ConfigurationUtils
     /// <value>paddle move units per second</value>
     public static float PaddleMoveUnitsPerSecond
     {
-        get { return 0.3f; }
+        get { return configurationData.PaddleMoveUnitsPerSecond; }
+    }
+    public static float BallImpulseForse
+    {
+        get { return configurationData.BallImpulseForce;}
+    }
+    public static float Direction
+    {
+        get { return -90;}
     }
 
     #endregion
@@ -25,6 +34,6 @@ public static class ConfigurationUtils
     /// </summary>
     public static void Initialize()
     {
-
+        configurationData = new ConfigurationData();
     }
 }
