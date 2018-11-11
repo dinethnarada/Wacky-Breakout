@@ -16,6 +16,10 @@ public class ConfigurationData
     // configuration data
     static float paddleMoveUnitsPerSecond = 0.3f;
     static float ballImpulseForce = 200;
+    static float ballLifeTime = 12;
+    static float minSpawnTime = 5;
+    static float maxSpawnTime = 10;
+    static int standardBlockPoints = 5;
 
     #endregion
 
@@ -38,6 +42,23 @@ public class ConfigurationData
     {
         get { return ballImpulseForce; }    
     }
+    public float BallLifeTime
+    {
+        get { return ballLifeTime;}
+    }
+    public float MinSpawnTime
+    {
+        get {return minSpawnTime;}
+    }
+    public float MaxSpawnTime
+    {
+        get {return maxSpawnTime;}
+    }
+    public int StandardBlockPoints
+    {
+        get { return standardBlockPoints;}
+    }
+
 
     #endregion
 
@@ -66,7 +87,7 @@ public class ConfigurationData
             values = readLine.Split(',');
             FillVariablies(values);    
         }
-        catch(Exception e){}
+        catch(Exception ){}
         finally
         {
             if(streamReader != null)
@@ -76,7 +97,6 @@ public class ConfigurationData
     public void FillVariablies(string[] values){
             paddleMoveUnitsPerSecond = float.Parse(values[0]);
             ballImpulseForce = float.Parse(values[1]);
-            Debug.Log(float.Parse(values[1]));
     }
     #endregion
 }

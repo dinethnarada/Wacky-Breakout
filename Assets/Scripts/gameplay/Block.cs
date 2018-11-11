@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Block : MonoBehaviour {
-/// <summary>
-/// 
-/// </summary>
-	// Use this for initialization
-	void Start () {
-		
+public class Block : MonoBehaviour 
+{
+	protected int point;
+	GameObject hUD;
+	HUD scoreScript;	
+	public virtual void Start () {
+		hUD =  GameObject.FindWithTag("Score");
+		scoreScript = hUD.GetComponent<HUD>();
 	}
 	
 	// Update is called once per frame
@@ -17,7 +18,8 @@ public class Block : MonoBehaviour {
 	}
 	private void OnCollisionEnter2D(Collision2D collision) {
 		if (collision.gameObject.CompareTag("Ball")){
-			Destroy(this.gameObject);
+			scoreScript.AddPoints(point);
+			Destroy(gameObject);
 		}
 	}
 }

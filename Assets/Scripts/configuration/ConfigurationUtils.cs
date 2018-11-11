@@ -22,9 +22,25 @@ public static class ConfigurationUtils
     {
         get { return configurationData.BallImpulseForce;}
     }
+    public static float BallLifeTime
+    {
+        get { return configurationData.BallLifeTime;}
+    }
+    public static float MinSpawnTime
+    {
+        get { return configurationData.MinSpawnTime;}
+    }
+    public static float MaxSpawnTime
+    {
+        get { return configurationData.MaxSpawnTime;}
+    }
     public static float Direction
     {
         get { return -90;}
+    }
+    public static int StandardBlockPoints
+    {
+        get { return configurationData.StandardBlockPoints;}
     }
 
     #endregion
