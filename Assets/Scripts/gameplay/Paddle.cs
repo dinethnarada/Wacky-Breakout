@@ -13,6 +13,7 @@ public class Paddle:MonoBehaviour {
 	bool IsTop;
 	float returnX;
 	float positionY;
+	float collisionTime;
 	const float BounceAngleHalfRange = Mathf.PI*60/180;
 	// Use this for initialization
 	void Start () {
@@ -41,9 +42,11 @@ public class Paddle:MonoBehaviour {
     /// <param name="coll">collision info</param>
     void OnCollisionEnter2D(Collision2D coll)
     {
+		print(coll.gameObject.name + ":" + Time.time);
 		IsTop = TopCollisionDetact(coll);
-        if (coll.gameObject.CompareTag("Ball")&&IsTop)
+        if (Time.time-collisionTime>0.3&&coll.gameObject.CompareTag("Ball")&&IsTop)
         {	
+			collisionTime = Time.time;
             // calculate new ball direction
             float ballOffsetFromPaddleCenter = transform.position.x -
                 coll.transform.position.x;

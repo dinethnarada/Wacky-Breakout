@@ -45,8 +45,11 @@ public class Ball : MonoBehaviour {
 		}
 	}	
 	public void SetDirection(Vector2 dir){
+		print("parsein: "+ dir);
 		ballXVelocity = rb2d.velocity.x; ballYVelocity = rb2d.velocity.y;
+		print("before change: "+rb2d.velocity);
 		rb2d.velocity = new Vector2(ballXVelocity*dir.x+ballYVelocity*dir.x,
 		ballYVelocity*dir.y+ballXVelocity*dir.y);
+		print("parseout: "+rb2d.velocity);
 	}
 }

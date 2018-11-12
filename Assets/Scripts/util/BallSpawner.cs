@@ -11,6 +11,8 @@ public class BallSpawner : MonoBehaviour {
     Vector2 ballUpRightCorner;
     Timer spawnTimer;
     bool RetrySpawn = false;
+    HUD scoreScript;
+
     private void Start() {
         Ball ball = Instantiate(ballPrefab,Vector3.zero,Quaternion.identity);
         Vector3 scaleOfBall =  ball.transform.lossyScale;
@@ -23,7 +25,7 @@ public class BallSpawner : MonoBehaviour {
         maxSpawnTime = ConfigurationUtils.MaxSpawnTime;
         spawnTimer = gameObject.AddComponent<Timer>();
         RunRandomSpawnTimer(spawnTimer);
-        Destroy(ball.gameObject);
+        scoreScript = GameObject.FindWithTag("Score").GetComponent<HUD>();
     }
     private void Update() {
         if (spawnTimer.Finished || RetrySpawn){
@@ -45,6 +47,7 @@ public class BallSpawner : MonoBehaviour {
     /// <param name="other"></param>
     private void OnTriggerExit2D(Collider2D other) {
         Destroy(other.gameObject);
+        scoreScript.DecreaseBall();
         SpawnNewBall();
     }
     public void RunRandomSpawnTimer(Timer timer){

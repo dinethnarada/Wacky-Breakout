@@ -36,11 +36,35 @@ public static class ConfigurationUtils
     }
     public static float Direction
     {
-        get { return -90;}
+        get { return -80;}
     }
     public static int StandardBlockPoints
     {
         get { return configurationData.StandardBlockPoints;}
+    }
+    public static int BonusBlockPoints
+    {
+        get { return configurationData.BonusBlockPoints;}
+    }
+    public static int PickUpBlockPoints
+    {
+        get { return configurationData.PickUpBlockPoints;}
+    }
+    public static float StandardBlockProbability
+    {
+        get { return configurationData.StandardBlockProbability;}
+    }
+    public static float BonusBlockProbability
+    {
+        get { return configurationData.BonusBlockProbability;}
+    }
+    public static float PickUpBlockProbability
+    {
+        get { return configurationData.PickUpBlockProbability;}
+    }
+    public static int BallLeft
+    {
+        get { return configurationData.BallLeft;}
     }
 
     #endregion

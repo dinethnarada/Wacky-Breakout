@@ -20,6 +20,12 @@ public class ConfigurationData
     static float minSpawnTime = 5;
     static float maxSpawnTime = 10;
     static int standardBlockPoints = 5;
+    static float standardBlockProbability = 0.7f;
+    static int bonusBlockPoints = 25;
+    static float bonusBlockProbability = 0.2f;
+    static int pickUpBlockPoints = 5;
+    static float pickUpBlockProbability = 0.1f;
+    static int ballLeft = 5;
 
     #endregion
 
@@ -58,6 +64,30 @@ public class ConfigurationData
     {
         get { return standardBlockPoints;}
     }
+    public int BonusBlockPoints
+    {
+        get {return bonusBlockPoints;}
+    }
+    public int PickUpBlockPoints
+    {
+        get { return pickUpBlockPoints;}
+    }
+    public float StandardBlockProbability
+    {
+        get { return standardBlockProbability;}
+    }
+    public float BonusBlockProbability
+    {
+        get { return bonusBlockProbability;}
+    }
+    public float PickUpBlockProbability
+    {
+        get { return pickUpBlockProbability;}
+    }
+    public int BallLeft
+    {
+        get { return ballLeft;}
+    }
 
 
     #endregion
@@ -76,13 +106,13 @@ public class ConfigurationData
     }
     public void StreamReading(){
         StreamReader streamReader = null;      
-        string[] name;
+        //string[] name;
         string[] values;
         try
         {
             streamReader = File.OpenText(Path.Combine(Application.streamingAssetsPath, ConfigurationDataFileName));
             string readLine = streamReader.ReadLine();
-            name = readLine.Split(',');
+            readLine.Split(',');
             readLine = streamReader.ReadLine();
             values = readLine.Split(',');
             FillVariablies(values);    

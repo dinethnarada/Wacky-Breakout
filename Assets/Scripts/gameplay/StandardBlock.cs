@@ -13,9 +13,4 @@ public class StandardBlock : Block {
 		this.GetComponent<SpriteRenderer>().color =  randomSpriteRenderer.color;
 		base.Start();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
