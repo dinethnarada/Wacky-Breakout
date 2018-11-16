@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 /// <summary>
 /// 
 /// </summary>
@@ -14,17 +15,22 @@ public class Paddle:MonoBehaviour {
 	float returnX;
 	float positionY;
 	float collisionTime;
+	Timer freezeTimer;
 	const float BounceAngleHalfRange = Mathf.PI*60/180;
 	// Use this for initialization
 	void Start () {
+		freezeTimer = gameObject.AddComponent<Timer>();
 		rb2d = GetComponent<Rigidbody2D>();		
 		halfWidthOfPeddle = transform.lossyScale.x/2;
 		halfHeightOfPeddle = transform.lossyScale.y/2;
 		velocityOfPeddle =  ConfigurationUtils.PaddleMoveUnitsPerSecond;
 		positionY = transform.position.y;
+		EventManager.AddFreezeListener((int freezeDuration)=>{freezeTimer.Duration=freezeDuration;freezeTimer.Run();});
 	}
 	void FixedUpdate() {
-		float horizontal = Input.GetAxis("Horizontal");
+		float horizontal=0;
+		if (!freezeTimer.Running)
+			horizontal = Input.GetAxis("Horizontal");
 		//transform.Translate(new Vector3(velocityOfPeddle * horizontal,0,0));
 		float possibleX = transform.position.x+velocityOfPeddle*horizontal;	
 		float returnX = CalculateClampedX(possibleX,horizontal);
@@ -42,7 +48,7 @@ public class Paddle:MonoBehaviour {
     /// <param name="coll">collision info</param>
     void OnCollisionEnter2D(Collision2D coll)
     {
-		print(coll.gameObject.name + ":" + Time.time);
+		//print(coll.gameObject.name + ":" + Time.time);
 		IsTop = TopCollisionDetact(coll);
         if (Time.time-collisionTime>0.3&&coll.gameObject.CompareTag("Ball")&&IsTop)
         {	

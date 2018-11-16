@@ -51,7 +51,8 @@ public class LevelBuilder : MonoBehaviour {
 			for (int x = 0; x<spawnBlockColumns; x++){
 				spawnPosition = new Vector2(spawnBlockStartX,spawnBlockStartY);				
 				int randomBlockIndex =randomBlock.choose(probabilityArray);
-				Instantiate(Blocks[randomBlockIndex],spawnPosition,Quaternion.identity);
+				//Instantiate(Blocks[randomBlockIndex],spawnPosition,Quaternion.identity); // NORMAL
+				Instantiate(Blocks[2],spawnPosition,Quaternion.identity); // TEST
 				spawnBlockStartX += standardBlockWidth;			
 			}
 			spawnBlockStartY -= standardBlockHeight;

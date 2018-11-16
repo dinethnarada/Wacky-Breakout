@@ -36,7 +36,11 @@ public static class ConfigurationUtils
     }
     public static float Direction
     {
-        get { return -80;}
+        get { return -90;}
+    }
+    public static float DirectionOffset
+    {
+        get { return configurationData.DirectionOffSet;}
     }
     public static int StandardBlockPoints
     {
@@ -65,6 +69,18 @@ public static class ConfigurationUtils
     public static int BallLeft
     {
         get { return configurationData.BallLeft;}
+    }
+    public static int FreezeDuration
+    {
+        get { return configurationData.FreezeDuration;}
+    }
+    public static int SpeedUpDuration
+    {
+        get { return configurationData.SpeedUpDuration;}
+    }
+    public static float SpeedUpFactor
+    {
+        get { return configurationData.SpeedUpFactor;}
     }
 
     #endregion

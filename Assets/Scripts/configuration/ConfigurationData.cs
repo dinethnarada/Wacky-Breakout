@@ -26,6 +26,10 @@ public class ConfigurationData
     static int pickUpBlockPoints = 5;
     static float pickUpBlockProbability = 0.1f;
     static int ballLeft = 5;
+    static int directionOffset = 30;
+    static int freezeDuration = 2;
+    static int speedUpDuration = 2;
+    static float speedUpFactor = 1.3f;
 
     #endregion
 
@@ -88,6 +92,22 @@ public class ConfigurationData
     {
         get { return ballLeft;}
     }
+    public int DirectionOffSet
+    {
+        get { return directionOffset;}
+    }
+    public int FreezeDuration
+    {
+        get { return freezeDuration;}
+    }
+    public int SpeedUpDuration
+    {
+        get { return speedUpDuration;}
+    }
+    public float SpeedUpFactor
+    {
+        get { return speedUpFactor;}
+    }
 
 
     #endregion
@@ -127,6 +147,17 @@ public class ConfigurationData
     public void FillVariablies(string[] values){
             paddleMoveUnitsPerSecond = float.Parse(values[0]);
             ballImpulseForce = float.Parse(values[1]);
+            ballLifeTime = float.Parse(values[2]);
+            minSpawnTime = float.Parse(values[3]);
+            maxSpawnTime = float.Parse(values[4]);
+            standardBlockPoints = int.Parse(values[5]);
+            standardBlockProbability = float.Parse(values[6]);
+            bonusBlockPoints = int.Parse(values[7]);
+            bonusBlockProbability = float.Parse(values[8]);
+            pickUpBlockPoints = int.Parse(values[9]);
+            pickUpBlockProbability = float.Parse(values[10]);
+            ballLeft = int.Parse(values[11]);
+            directionOffset = int.Parse(values[12]);
     }
     #endregion
 }
